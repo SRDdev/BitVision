@@ -1,0 +1,31 @@
+# General settings
+device: "cuda"  # Set to "cpu" if GPU is not available
+epochs: 20  # Number of training epochs
+batch_size: 64  # Batch size for training
+
+# Model parameters
+num_encoders: 12  # Number of transformer encoder layers
+latent_size: 512  # Embedding dimension
+num_classes: 10  # Number of output classes (e.g., 10 for CIFAR-10)
+
+# Optimization settings
+base_lr: 0.0003  # Initial learning rate
+weight_decay: 0.0001  # Weight decay for Adam optimizer
+
+# Dataset settings
+dataset_name: "CIFAR10"  # Change this to "ImageNet" or another dataset if needed
+image_size: 224  # Resize input images to this size
+
+# Learning rate scheduler
+lr_scheduler:
+  type: "StepLR"  # Options: "StepLR", "CosineAnnealingLR", "ReduceLROnPlateau"
+  step_size: 5  # Reduce LR every 5 epochs (for StepLR)
+  gamma: 0.5  # Multiplicative factor for LR decay
+
+# Checkpoint settings
+save_checkpoints: true  # Whether to save model checkpoints
+checkpoint_dir: "checkpoints"  # Directory to save model checkpoints
+
+# Miscellaneous
+num_workers: 4  # Number of worker threads for data loading
+pin_memory: true  # Pin memory for faster data transfer to GPU
